@@ -11,7 +11,7 @@ import jakarta.persistence.Table
 import mu.architecture.modulith.common.audit.Auditable
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 class Order : Auditable() {
 
     @Id

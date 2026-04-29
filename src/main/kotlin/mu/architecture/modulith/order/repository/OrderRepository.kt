@@ -5,4 +5,7 @@ import mu.architecture.modulith.order.model.Order
 import org.springframework.stereotype.Repository
 
 @Repository
-interface OrderRepository : GenericRepository<Order>
+interface OrderRepository : GenericRepository<Order> {
+
+    fun existsOrderByOrderNumber(orderNumber: String?): Boolean
+}

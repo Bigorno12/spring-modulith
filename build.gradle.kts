@@ -38,7 +38,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     //Database + Liquibase
     implementation("org.springframework.boot:spring-boot-starter-liquibase")
+    implementation("org.springframework.boot:spring-boot-h2console")
     runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("com.h2database:h2")
     //Modulith
     implementation("org.springframework.modulith:spring-modulith-starter-jpa")
     implementation("org.springframework.modulith:spring-modulith-events-api")

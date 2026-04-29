@@ -3,7 +3,6 @@ package mu.architecture.modulith.order.dto
 import mu.architecture.modulith.order.model.Status
 
 data class OrderView(
-    val orderNumber: String?,
     val customerName: String?,
     val customerEmail: String?,
     val customerPhone: String?,
@@ -16,7 +15,6 @@ data class OrderView(
     val comments: String?
 ) {
     init {
-        requireNotNull(orderNumber) { "orderNumber must not be null" }
         requireNotNull(customerName) { "customerName must not be null" }
         requireNotNull(customerEmail) { "customerEmail must not be null" }
         requireNotNull(customerPhone) { "customerPhone must not be null" }

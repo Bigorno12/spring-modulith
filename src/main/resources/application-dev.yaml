@@ -6,21 +6,23 @@ logging:
 
 spring:
   jpa:
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         jdbc:
           batch_size: 50
           fetch_size: 100
           batch_versioned_data: true
+          time_zone: UTC
         format_sql: true
         order_updates: true
+        order_inserts: true
         default_batch_fetch_size: 32
         generate_statistics: true
         cache:
           use_second_level_cache: false
           use_query_cache: false
-    generate-ddl: true
+    generate-ddl: false
   datasource:
     driver-class-name: org.postgresql.Driver
     url: ${DB_URL}
@@ -36,12 +38,18 @@ spring:
       validation-timeout: 5000
       leak-detection-threshold: 2000
       connection-test-query: SELECT 1
+      data-source-properties:
+        useServerPrepStmts: false
+        cachePrepStmts: true
+        prepStmtCacheSize: 500
+        prepStmtCacheSqlLimit: 1024
+      transaction-isolation: TRANSACTION_READ_COMMITTED
   liquibase:
     user: ${DB_USERNAME}
     driver-class-name: org.postgresql.Driver
     change-log: classpath:db/changelog/changelog-master.yaml
     password: ${DB_PASSWORD}
     url: ${DB_URL}
-    enabled: false
+    enabled: true
   jackson:
     default-property-inclusion: non_null
