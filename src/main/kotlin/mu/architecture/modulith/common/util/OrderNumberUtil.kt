@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter
 object OrderNumberUtil {
 
     val random: SecureRandom = SecureRandom()
-    val CHARSET = (('A'..'Z') + ('0'..'9')).joinToString("")
+    val CHARSET: String = (('A'..'Z') + ('0'..'9')).joinToString("")
 
     fun generateOrderNumber(): String {
         val date: String = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"))

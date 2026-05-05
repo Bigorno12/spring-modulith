@@ -1,9 +1,9 @@
 package mu.architecture.modulith.order.event
 
-import mu.architecture.modulith.config.RabbitMQConfig
+import mu.architecture.modulith.configuration.RabbitMQConfiguration
 import org.springframework.modulith.events.Externalized
 
-@Externalized(target = RabbitMQConfig.EXCHANGE_NAME)
+@Externalized(target = RabbitMQConfiguration.EXCHANGE_NAME)
 data class OrderEvent(
     val orderNumber: String?,
     val productCode: String?,

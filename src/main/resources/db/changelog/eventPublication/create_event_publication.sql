@@ -1,0 +1,5 @@
+CREATE TYPE publication_status AS ENUM ('COMPLETED', 'FAILED', 'PROCESSING', 'PUBLISHED', 'RESUBMITTED');
+
+CREATE TABLE event_publication (
+
+)

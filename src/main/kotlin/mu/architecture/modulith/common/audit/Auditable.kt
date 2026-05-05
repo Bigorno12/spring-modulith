@@ -10,7 +10,7 @@ import java.time.LocalDateTime
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener::class)
-class Auditable {
+abstract class Auditable {
 
     @CreatedDate
     @Column(name = "created_date", updatable = false, nullable = false)

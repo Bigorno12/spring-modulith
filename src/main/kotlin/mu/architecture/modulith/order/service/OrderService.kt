@@ -1,7 +1,7 @@
 package mu.architecture.modulith.order.service
 
-import mu.architecture.modulith.order.dto.OrderView
+import mu.architecture.modulith.order.dto.OrderSaveRequest
 
 interface OrderService {
-     fun save(orderView: OrderView?)
+     fun save(orderSaveRequest: OrderSaveRequest?)
 }

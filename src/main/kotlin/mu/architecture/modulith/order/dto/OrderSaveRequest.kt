@@ -1,8 +1,6 @@
 package mu.architecture.modulith.order.dto
 
-import mu.architecture.modulith.order.model.Status
-
-data class OrderView(
+data class OrderSaveRequest(
     val customerName: String?,
     val customerEmail: String?,
     val customerPhone: String?,
@@ -11,7 +9,6 @@ data class OrderView(
     val productName: String?,
     val productPrice: Double?,
     val quantity: Int?,
-    val status: Status?,
     val comments: String?
 ) {
     init {
@@ -22,7 +19,5 @@ data class OrderView(
         requireNotNull(productName) { "productName must not be null" }
         requireNotNull(productPrice) { "productPrice must not be null" }
         require(quantity != null) { "quantity must not be null" }
-        require(status != null) { "status must not be null" }
-        require(comments != null) { "comments must not be null" }
     }
 }

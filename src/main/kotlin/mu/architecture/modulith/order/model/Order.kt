@@ -9,34 +9,38 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
 import mu.architecture.modulith.common.audit.Auditable
+import mu.architecture.modulith.common.util.SoftDeleteConverter
+import org.hibernate.annotations.SoftDelete
+import org.hibernate.annotations.SoftDeleteType
 
 @Entity
 @Table(name = "orders")
+@SoftDelete(columnName = "is_archived", strategy = SoftDeleteType.DELETED, converter = SoftDeleteConverter::class)
 class Order : Auditable() {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
+    @GeneratedValue(strategy = GenerationType.UUID)
+    var id: java.util.UUID? = null
 
-    @Column(name = "order_number", unique = true, nullable = false)
+    @Column(name = "order_number", unique = true, nullable = false, length = 25)
     var orderNumber: String? = null
 
-    @Column(name = "customer_name", nullable = false)
+    @Column(name = "customer_name", nullable = false, length = 100)
     var customerName: String? = null
 
-    @Column(name = "customer_email", nullable = false)
+    @Column(name = "customer_email", nullable = false, length = 50)
     var customerEmail: String? = null
 
-    @Column(name = "customer_phone", nullable = false)
+    @Column(name = "customer_phone", nullable = false, length = 50)
     var customerPhone: String? = null
 
-    @Column(name = "delivery_address", nullable = false)
+    @Column(name = "delivery_address", nullable = false, length = 100)
     var deliveryAddress: String? = null
 
-    @Column(name = "product_code", nullable = false)
+    @Column(name = "product_code", nullable = false, length = 10)
     var productCode: String? = null
 
-    @Column(name = "product_name", nullable = false)
+    @Column(name = "product_name", nullable = false, length = 100)
     var productName: String? = null
 
     @Column(name = "product_price", nullable = false)
@@ -49,6 +53,6 @@ class Order : Auditable() {
     @Column(name = "status", nullable = false)
     var status: Status? = null
 
-    @Column(name = "comments")
+    @Column(name = "comments", length = 500)
     var comments: String? = null
 }

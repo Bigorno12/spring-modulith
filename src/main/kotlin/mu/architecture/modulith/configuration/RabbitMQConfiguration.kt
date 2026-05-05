@@ -1,4 +1,4 @@
-package mu.architecture.modulith.config
+package mu.architecture.modulith.configuration
 
 import org.springframework.amqp.core.Binding
 import org.springframework.amqp.core.BindingBuilder
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration
 import tools.jackson.databind.json.JsonMapper
 
 @Configuration
-class RabbitMQConfig {
+class RabbitMQConfiguration {
 
     companion object {
         const val EXCHANGE_NAME: String = "orders"

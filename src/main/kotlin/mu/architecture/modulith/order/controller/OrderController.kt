@@ -1,6 +1,6 @@
 package mu.architecture.modulith.order.controller
 
-import mu.architecture.modulith.order.dto.OrderView
+import mu.architecture.modulith.order.dto.OrderSaveRequest
 import mu.architecture.modulith.order.service.OrderService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController
 class OrderController(private val orderService: OrderService) {
 
     @PostMapping
-    fun save(@RequestBody orderView: OrderView) : ResponseEntity<Void> {
-        orderService.save(orderView)
+    fun save(@RequestBody orderSaveRequest: OrderSaveRequest) : ResponseEntity<Void> {
+        orderService.save(orderSaveRequest)
         return ResponseEntity.ok().build()
     }
 }

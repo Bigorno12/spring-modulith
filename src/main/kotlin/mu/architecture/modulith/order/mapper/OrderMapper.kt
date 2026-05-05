@@ -1,6 +1,6 @@
 package mu.architecture.modulith.order.mapper
 
-import mu.architecture.modulith.order.dto.OrderView
+import mu.architecture.modulith.order.dto.OrderSaveRequest
 import mu.architecture.modulith.order.event.OrderEvent
 import mu.architecture.modulith.order.model.Order
 import org.mapstruct.InjectionStrategy
@@ -17,7 +17,8 @@ interface OrderMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "orderNumber", source = "orderNumber")
-    fun toEntity(source: OrderView?, orderNumber: String?): Order
+    @Mapping(target = "status", constant = "ACTIVE")
+    fun saveOrderToEntity(source: OrderSaveRequest?, orderNumber: String?): Order
 
     fun toEvent(source: Order?): OrderEvent
 }
