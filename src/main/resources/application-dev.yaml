@@ -50,11 +50,11 @@ spring:
         prepStmtCacheSqlLimit: 1024
       transaction-isolation: TRANSACTION_READ_COMMITTED
   liquibase:
-    user: ${DB_USERNAME}
+    user: ${POSTGRES.DB.USERNAME}
     driver-class-name: org.postgresql.Driver
     change-log: classpath:db/changelog/changelog-master.yaml
-    password: ${DB_PASSWORD}
-    url: ${DB_URL}
+    password: ${POSTGRES.DB.PASSWORD}
+    url: ${POSTGRES.DB.URL}
     enabled: true
   jackson:
     default-property-inclusion: non_null
