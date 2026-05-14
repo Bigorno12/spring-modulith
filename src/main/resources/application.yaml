@@ -16,8 +16,11 @@ spring:
     hikari:
       auto-commit: false
   main:
-    lazy-initialization: true
-
+    lazy-initialization: false
+  modulith:
+    events:
+      republish-outstanding-events-on-restart: true
+      completion-mode: delete
 server:
   port: 9090
   tomcat:

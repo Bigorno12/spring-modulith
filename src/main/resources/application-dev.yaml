@@ -5,6 +5,11 @@ logging:
     root: INFO
 
 spring:
+  rabbitmq:
+    host: ${RABBITMQ.HOST}
+    port: ${RABBITMQ.PORT}
+    username: ${RABBITMQ.USERNAME}
+    password: ${RABBITMQ.PASSWORD}
   jpa:
     show-sql: false
     properties:
@@ -25,9 +30,9 @@ spring:
     generate-ddl: false
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: ${POSTGRES.DB.URL}
+    username: ${POSTGRES.DB.USERNAME}
+    password: ${POSTGRES.DB.PASSWORD}
     hikari:
       pool-name: HikariPool
       maximum-pool-size: 20

@@ -17,7 +17,7 @@ class ArchUnitTest {
             .importPackages("mu.architecture.modulith.")
     }
 
-    @kotlin.test.Test
+    @Test
     fun modules_only_depend_on_internal_apis_of_others() {
         val rule = SlicesRuleDefinition.slices()
             .matching("mu.architecture.modulith.(*).*")

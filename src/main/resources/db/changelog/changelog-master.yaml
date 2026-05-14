@@ -2,4 +2,4 @@ databaseChangeLog:
   - include:
       file: db/changelog/order/create_table_order.sql
   - include:
-      file: db/changelog/eventPublication/
+      file: db/changelog/event/create_event_publication.sql
